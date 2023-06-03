@@ -21,5 +21,10 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         return new String[]{"/"};
     }
 
-
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        String tempDir = System.getProperty("java.io.tmpdir");
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement(tempDir);
+        registration.setMultipartConfig(multipartConfigElement);
+    }
 }

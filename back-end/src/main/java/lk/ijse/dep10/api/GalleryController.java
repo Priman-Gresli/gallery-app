@@ -36,6 +36,26 @@ public class GalleryController {
         return imageList;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public List<String> saveImage(@RequestPart("images") List<Part> imageFile, UriComponentsBuilder uriComponentsBuilder){
+        ArrayList<String> imageList = new ArrayList<>();
+        if (imageFile != null) {
+            String urlName = servletContext.getRealPath("/uploads");
+            for (Part image : imageFile) {
+                String absolutePath = new File(urlName, image.getSubmittedFileName()).getAbsolutePath();
+                try {
+                    image.write(absolutePath);
+                    UriComponentsBuilder uriComponentsBuilder1 = uriComponentsBuilder.cloneBuilder();
+                    String url = uriComponentsBuilder1.pathSegment("uploads", image.getSubmittedFileName()).toUriString();
+                    imageList.add(url);
+                }catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return imageList;
+    }
 
 
 }
