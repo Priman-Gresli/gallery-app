@@ -18,6 +18,24 @@ import java.util.List;
 @RequestMapping("/images")
 public class GalleryController {
 
+    @Autowired
+    private ServletContext servletContext;
+
+    @GetMapping
+    public ArrayList<String> getImage(UriComponentsBuilder uriBuilder) {
+        ArrayList<String> imageList = new ArrayList<>();
+        String urlName = servletContext.getRealPath("/uploads");
+        File imageFile = new File(urlName);
+        String[] list = imageFile.list();
+        for (String name : list) {
+            UriComponentsBuilder uriComponentsBuilder = uriBuilder.cloneBuilder();
+            String images = uriComponentsBuilder.pathSegment("uploads", name).toUriString();
+            imageList.add(images);
+        }
+        System.out.println(imageFile);
+        return imageList;
+    }
+
 
 
 }
