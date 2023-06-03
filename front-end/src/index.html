@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <title>Public-Gallery</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="scss/style.scss">
     <script defer src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
+<header class="d-flex justify-content-between">
+    <h1>Image Gallery</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Upload Images</button>
+</header>
+<main>
+    <div id="outer-drag" class="">
+        <div id="drag-drop" class="">
 
+        </div>
+    </div>
+
+</main>
 </body>
 </html>
