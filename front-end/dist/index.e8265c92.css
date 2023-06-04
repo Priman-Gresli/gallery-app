@@ -1,5 +1,62 @@
-h1 {
-  color: red;
+body {
+  overflow: hidden;
+}
+
+header {
+  border-bottom: 2px solid #aba2a2;
+  margin: 10px;
+  padding: 10px;
+}
+
+#outer-drag {
+  width: 100vw;
+  height: 100vh;
+  opacity: .8;
+  background-color: #bbd6e0d6;
+}
+
+#drag-drop {
+  width: 50vw;
+  height: 70vh;
+}
+
+#drag-drop span {
+  font-size: 100px;
+}
+
+#drag-drop p {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.image {
+  width: 200px;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+  border: 2px dashed #000;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition-property: transform;
+  transition-duration: .5s;
+}
+
+.image:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.image:hover .material-symbols-outlined {
+  visibility: visible;
+}
+
+.image span {
+  visibility: hidden;
+}
+
+#main-scene {
+  margin: 20px;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=index.e8265c92.css.map */
